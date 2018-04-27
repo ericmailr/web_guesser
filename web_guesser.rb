@@ -22,6 +22,9 @@ get '/' do
 		message = "Ya lose. Number has been changed."
 		@@reset = true
 	end
+	if params["cheat"] == "true"
+		message << " Hint: the number is #{@@secret_number}, cheater."
+	end
 	erb :index, :locals => {:color => color, :message => message}
 end
 
